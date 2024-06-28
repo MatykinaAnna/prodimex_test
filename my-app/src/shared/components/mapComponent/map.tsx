@@ -9,7 +9,7 @@ function MyComponent() {
 
 const MyMapComponent = () => {
   return (
-    <MapContainer center={[50.5, 30.5]} zoom={13}>
+    <MapContainer center={[100, 100]} zoom={13}>
       <MyComponent />
       <TileLayer url=""></TileLayer>
     </MapContainer>
