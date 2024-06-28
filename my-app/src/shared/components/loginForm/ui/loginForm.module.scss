@@ -1,0 +1,66 @@
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.wrapper {
+  width: 750px;
+  height: 260px;
+
+  .h1 {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .input_email,
+  .input_password {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: end;
+    box-sizing: border-box;
+    align-items: center;
+
+    .label {
+      font-weight: 500;
+      margin-right: 30px;
+    }
+    input {
+      height: 34px;
+      width: 594px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  .remember {
+    margin-top: 7px;
+    margin-left: 146px;
+    label {
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+  .btn_login {
+    margin-left: 146px;
+    margin-top: 20px;
+    button {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 34px;
+      width: 65px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #dfdfdf;
+    }
+  }
+}
