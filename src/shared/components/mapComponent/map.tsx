@@ -2,13 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { TileLayer, MapContainer, useMap, Polygon } from 'react-leaflet';
 import styles from './map.module.scss';
 import { statesData } from './data';
+import { data1 } from './data1';
 import { useAppSelector } from '../../../app/hooks';
-
-function MyComponent() {
-  const map = useMap();
-  console.log('map center:', map.getCenter());
-  return null;
-}
 
 const MyMapComponent = () => {
   const mapRef = useRef(null);
@@ -46,6 +41,24 @@ const MyMapComponent = () => {
             <Polygon
               pathOptions={{
                 fillColor: '#FF47CA',
+                fillOpacity: 0.7,
+                weight: 2,
+                opacity: 1,
+                dashArray: [3],
+                color: 'white',
+              }}
+              //@ts-ignore
+              positions={coordinates}
+            />
+          );
+        })}
+
+        {data1.map((state) => {
+          const coordinates = state.map((item) => [item[0], item[1]]);
+          return (
+            <Polygon
+              pathOptions={{
+                fillColor: '#FCB4D5',
                 fillOpacity: 0.7,
                 weight: 2,
                 opacity: 1,
