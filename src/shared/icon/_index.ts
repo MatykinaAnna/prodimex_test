@@ -1,3 +1,4 @@
-import logo from './logo.png'
+import logo from './logo.png';
+import logout from './logout.png';
 
-export { logo }
+export { logo, logout };

@@ -1,7 +1,9 @@
 import styles from './head.module.scss';
-import { logo } from '../../icon/_index';
+import { logo, logout } from '../../icon/_index';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import userPic from '../../icon/userPic.svg';
+import classNames from 'classnames';
 
 const Head = () => {
   const cookies = new Cookies();
@@ -12,13 +14,25 @@ const Head = () => {
         <a href="/#">
           <img src={logo} alt="logo" className={styles.logo_img} />
         </a>
-        <button
-          onClick={() => {
-            cookies.remove('user');
-            navigate('../login');
-          }}>
-          Выйти
-        </button>
+        {cookies.get('user') && (
+          <div className={styles.rigthGroup_btn}>
+            <div className={styles.userName}>
+              <img width={24} height={24} src={userPic} alt="" />
+              <span>{cookies.get('user')}</span>
+            </div>
+            <div className={styles.btnLogout}>
+              <img
+                width={32}
+                height={34}
+                alt="icon"
+                src={logout}
+                onClick={() => {
+                  cookies.remove('user');
+                  navigate('../login');
+                }}></img>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
