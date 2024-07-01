@@ -56,18 +56,20 @@ const MyMapComponent = () => {
         {data1.map((state) => {
           const coordinates = state.map((item) => [item[0], item[1]]);
           return (
-            <Polygon
-              pathOptions={{
-                fillColor: '#FCB4D5',
-                fillOpacity: 0.7,
-                weight: 2,
-                opacity: 1,
-                dashArray: [3],
-                color: 'white',
-              }}
-              //@ts-ignore
-              positions={coordinates}
-            />
+            <div className={styles.PolygonRegion}>
+              <Polygon
+                pathOptions={{
+                  fillColor: '#FCB4D5',
+                  fillOpacity: 0.7,
+                  weight: 2,
+                  opacity: 1,
+                  dashArray: [3],
+                  color: 'white',
+                }}
+                //@ts-ignore
+                positions={coordinates}
+              />
+            </div>
           );
         })}
       </MapContainer>
