@@ -1,16 +1,16 @@
-import styles from './link.module.scss'
+import styles from './link.module.scss';
 
 interface Props {
-  img: string
-  text: string
+  img: string;
+  text: string;
 }
 
 const Link = (props: Props) => {
   return (
-    <div>
-      <img src={props.img} width={24} height={24} alt="img" />
+    <div className={styles.wrapper}>
+      <img src={props.img} alt="icon" width={24} height={24} />
       <span className={styles.span}>{props.text}</span>
     </div>
-  )
-}
-export default Link
+  );
+};
+export default Link;

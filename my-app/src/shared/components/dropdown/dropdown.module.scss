@@ -1,0 +1,39 @@
+.header {
+  font-size: 11px;
+  font-weight: bold;
+  color: #9b9ea3;
+}
+.selectedName {
+  font-weight: 500;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+.selectedName {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.component {
+  height: 270px;
+  width: 250px;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  top: 100px;
+  padding: 6px;
+  overflow-y: auto;
+}
+.component_row {
+  input {
+    cursor: pointer;
+  }
+  label {
+    cursor: pointer;
+  }
+  padding-bottom: 4px;
+}
+.child {
+  padding-left: 14px;
+}

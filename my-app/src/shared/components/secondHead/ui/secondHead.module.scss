@@ -5,10 +5,10 @@
 }
 
 .navbar {
-  width: 40%;
+  width: 35%;
   height: 45px;
 
-  padding-left: 60px;
+  padding-left: 30px;
   justify-content: space-between;
 
   -webkit-box-shadow: 0px 5px 8px 0px rgba(34, 60, 80, 0.2);
@@ -18,4 +18,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+}
+.filters {
+  padding-right: 300px;
 }

@@ -1,3 +1,12 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.span:hover {
+  color: #659217;
+}
+
 .span {
   color: #000000;
   font-weight: 600;
