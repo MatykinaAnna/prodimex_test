@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 interface UserItem {
-  login: string
-  password: string
-  role: number
+  login: string;
+  password: string;
+  role: number;
 }
 
 interface state_login {
-  users: UserItem[]
+  users: UserItem[];
 }
 
 const loginReducer = createSlice({
@@ -22,6 +22,6 @@ const loginReducer = createSlice({
     ],
   } as state_login,
   reducers: {},
-})
-export default loginReducer.reducer
-export const {} = loginReducer.actions
+});
+export default loginReducer.reducer;
+export const {} = loginReducer.actions;

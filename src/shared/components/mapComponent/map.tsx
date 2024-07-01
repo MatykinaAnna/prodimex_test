@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TileLayer, MapContainer, useMap, Polygon } from 'react-leaflet';
 import styles from './map.module.scss';
 import { statesData } from './data';
+import { useAppSelector } from '../../../app/hooks';
 
 function MyComponent() {
   const map = useMap();
@@ -10,10 +11,19 @@ function MyComponent() {
 }
 
 const MyMapComponent = () => {
+  const mapRef = useRef(null);
+  const center = useAppSelector((state) => state.mapReducer.center);
+
+  useEffect(() => {
+    //@ts-ignore
+    mapRef.current?.setView(center);
+  }, [center]);
+
   return (
     <div className={styles.wrapper_MapContainer}>
       <MapContainer
-        center={[55.7, 37.5]}
+        ref={mapRef}
+        center={[center[0], center[1]]}
         zoom={13}
         style={{ height: '90vh', width: '100wh' }}>
         <TileLayer

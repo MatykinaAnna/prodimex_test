@@ -1,6 +1,5 @@
 .wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -20,5 +19,10 @@
   align-items: center;
 }
 .filters {
-  padding-right: 300px;
+  padding-left: 40%;
+}
+.btn {
+  button {
+    cursor: pointer;
+  }
 }

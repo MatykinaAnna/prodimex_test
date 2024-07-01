@@ -14,6 +14,7 @@ interface Props {
   header: string;
   array: item[];
   setActiveOption: Function;
+  setActiveAllOption: Function;
 }
 
 const Dropdown = (props: Props) => {
@@ -24,6 +25,8 @@ const Dropdown = (props: Props) => {
   const [openContent, setOpenContent] = useState(false);
 
   function onChangeCheckbox(id: number) {}
+
+  const [allOptionChecked, setActiveAllOptionChecked] = useState(false);
 
   useEffect(() => {
     let name = props.array.find((item) => {
@@ -47,7 +50,18 @@ const Dropdown = (props: Props) => {
             <div
               className={classnames(styles.component_row)}
               style={{ fontWeight: 'bold' }}>
-              <input type="checkbox" id={'all'} />
+              <input
+                type="checkbox"
+                id={'all'}
+                checked={allOptionChecked}
+                onChange={() => {
+                  setActiveAllOptionChecked(!allOptionChecked);
+                  props.setActiveAllOption(!allOptionChecked);
+                  if (!allOptionChecked) {
+                    setSelectedName('Выбрано все');
+                  }
+                }}
+              />
               <label htmlFor={'all'}>{'Выбрать все'}</label>;
             </div>
             {props.array.map((item, index) => {
@@ -63,7 +77,10 @@ const Dropdown = (props: Props) => {
                     id={String(item.id)}
                     checked={item.checked}
                     onChange={() => {
-                      item.checked = !item.checked;
+                      if (!item.checked) {
+                        setSelectedName(item.name);
+                      }
+                      props.setActiveOption(item);
                     }}
                   />
                   <label htmlFor={String(item.id)}>{item.name}</label>;

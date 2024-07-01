@@ -1,8 +1,15 @@
-import { useState } from 'react'
-import styles from './loginForm.module.scss'
+import { useState } from 'react';
+import styles from './loginForm.module.scss';
+import { useAppSelector } from '../../../../app/hooks';
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
-  const [login, setLogin] = useState('')
-  const [password, setPassword] = useState('')
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const users = useAppSelector((state) => state.loginReducer.users);
 
   async function onClickLogin() {
     // const response: void | Response = await fetch('', {
@@ -12,6 +19,14 @@ const LoginForm = () => {
     //     'content-type': 'application/json',
     //   },
     // }).then()
+    const cookies = new Cookies();
+    let user = users.find((item) => {
+      return item.login === login && item.password === password;
+    });
+    if (user !== undefined) {
+      cookies.set('user', user.login, { path: '/' });
+      navigate('../main-page');
+    }
   }
 
   return (
@@ -29,7 +44,7 @@ const LoginForm = () => {
           id=""
           value={login}
           onChange={(event) => {
-            setLogin(event.target.value)
+            setLogin(event.target.value);
           }}
         />
       </div>
@@ -41,7 +56,7 @@ const LoginForm = () => {
           id=""
           value={password}
           onChange={(event) => {
-            setPassword(event.target.value)
+            setPassword(event.target.value);
           }}
         />
       </div>
@@ -53,6 +68,6 @@ const LoginForm = () => {
         <button onClick={onClickLogin}>Войти</button>
       </div>
     </div>
-  )
-}
-export default LoginForm
+  );
+};
+export default LoginForm;
