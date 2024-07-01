@@ -8,7 +8,7 @@ import docs from '../../../icon/icon-docs24.svg';
 import thematicMap from '../../../icon/icon-thematicMap24.svg';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 
-import { setCheck, setAllOprionCheck, setCenter } from '../index';
+import { setCheck, setAllOprionCheck, setCenter, setZoom } from '../index';
 
 const SecondHead = () => {
   const dispatch = useAppDispatch();
@@ -30,6 +30,16 @@ const SecondHead = () => {
       }
     });
     return [sumX / counter, sumY / counter];
+  }
+
+  function getZoom() {
+    let counter = 0;
+    arrayBranch.forEach((item) => {
+      if (!item.parent && item.checked && item.center.length !== 0) {
+        counter++;
+      }
+    });
+    return 13 - counter;
   }
 
   return (
@@ -61,6 +71,7 @@ const SecondHead = () => {
         <button
           onClick={() => {
             dispatch(setCenter(getCenter()));
+            dispatch(setZoom(getZoom()));
           }}>
           Перейти
         </button>
